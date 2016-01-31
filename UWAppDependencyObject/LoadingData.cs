@@ -11,7 +11,7 @@ namespace UWAppDependencyObject
     //inherit from 
     public class LoadingData : DependencyObject
     {
-        //registeration
+        //registeration of dependency object
         public static readonly DependencyProperty LoadingMessageProperty = DependencyProperty.Register(
                 "LoadingMessage"
                 , typeof(string)
@@ -19,13 +19,14 @@ namespace UWAppDependencyObject
                 , new PropertyMetadata(String.Empty)   
             );
 
-        //wrapper for dependency message
+        //property rapper
         public string LoadingMessage
         {
             get { return (string)GetValue(LoadingMessageProperty); }
             set { SetValue(LoadingMessageProperty, value); }
         }
 
+        //registeration of dependency object
         public static readonly DependencyProperty IsLoadingProperty = DependencyProperty.Register(
                 "IsLoading"
                 , typeof(bool)
@@ -33,7 +34,7 @@ namespace UWAppDependencyObject
                 , new PropertyMetadata(false, new PropertyChangedCallback(IsloadingChanged))
             );
 
-        //call back after change
+        //call back after change for dependency object
         private static void IsloadingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             LoadingData container = d as LoadingData;
