@@ -6,8 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Page.DataContext>
+        <local:LoadingData LoadingMessage="Currently Thinking..."/>
+    </Page.DataContext>
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ProgressRing IsActive="{Binding IsLoading, Mode=OneWay}" />
+        <TextBlock Text="{Binding LoadingMessage, Mode=OneWay}"/>
+        <CheckBox IsChecked="{Binding IsLoading, Mode=TwoWay}" />
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    </Grid>
+    </StackPanel>
 </Page>
